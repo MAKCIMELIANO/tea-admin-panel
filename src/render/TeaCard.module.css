@@ -1,0 +1,112 @@
+.card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  border: 1px solid #eef2f6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+  align-self: flex-start;
+  background: #f0fdf4;
+  color: #166534;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #1e293b;
+}
+
+.desc {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.info {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btnEdit,
+.btnDelete {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnEdit {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btnDelete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: #64748b;
+}
+
+.btnIcon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.btnEdit .btnIcon {
+  color: #475569;
+}
+
+.btnDelete .btnIcon {
+  color: #dc2626;
+}
+
+.btnEdit:hover {
+  background: #e2e8f0;
+}
+
+.btnDelete:hover {
+  background: #fecaca;
+}
