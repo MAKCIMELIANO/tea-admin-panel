@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  // Твой URL на Render, который мы обсуждали в прошлых чатах
-  baseURL: 'https://tea-backend-69y8.onrender.com/api',
+  // Vite подставит сюда значение из .env автоматически
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

@@ -1,0 +1,33 @@
+.tea-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.tea-table th,
+.tea-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+.tea-table th {
+  background-color: #f4f4f4;
+}
+.category-badge {
+  background: #e0f2f1;
+  color: #00796b;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.btn-delete {
+  color: red;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.btn-edit {
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-right: 10px;
+}
