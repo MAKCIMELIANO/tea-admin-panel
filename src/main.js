@@ -1,29 +1,38 @@
 import './style.css';
 import instance from '@api/instance';
-import { renderTeaTable } from '@render/tea-list';
+import { TeaCard } from '@render/TeaCard';
+import { createIcons, Pencil, Trash2, Package, CircleDollarSign } from 'lucide';
 
-async function initAdminPanel() {
+async function renderApp() {
+  const app = document.querySelector('#app');
+  app.innerHTML = '<h2>Загрузка чая...</h2>';
+
   try {
-    const response = await instance.get('/teas');
-    // Учитываем твою структуру данных: response.data.data.data
-    const teas = response.data.data.data;
+    const response = await instance.get('/teas?perPage=22');
+    const teasData = response.data.data.data;
 
-    document.querySelector('#app').innerHTML = `
+    const cardsHtml = teasData
+      .map(data => {
+        const card = new TeaCard(data);
+        return card.createMarkup();
+      })
+      .join('');
+
+    app.innerHTML = `
       <div class="container">
-        <header>
-          <h1>Управление чаем (Total: ${response.data.data.totalItems})</h1>
-          <button id="add-tea" class="btn-primary">Добавить новый чай</button>
-        </header>
-        <div id="tea-list"></div>
+        <h1>Admin Tea List</h1>
+        <div class="tea-grid">
+          ${cardsHtml}
+        </div>
       </div>
     `;
 
-    renderTeaTable(teas);
+    // Инициализация иконок Lucide после рендеринга HTML
+    createIcons({ icons: { Pencil, Trash2, Package, CircleDollarSign } });
   } catch (error) {
-    console.error('Ошибка:', error);
-    document.querySelector('#app').innerHTML =
-      `<h1>Ошибка загрузки данных</h1>`;
+    app.innerHTML = '<h2>Ошибка загрузки!</h2>';
+    console.error(error);
   }
 }
 
-initAdminPanel();
+renderApp();
